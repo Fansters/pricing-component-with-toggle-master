@@ -1,0 +1,179 @@
+:root {
+	/* --linearGradient: rgb(163, 168, 240) to rgb(105, 111, 221); */
+	--veryLightGrayishBlue: hsl(240, 78%, 98%);
+	--lightGrayishBlue: hsl(234, 14%, 74%);
+	--grayishBlue: hsl(233, 13%, 49%);
+	--darkGrayishBlue: hsl(232, 13%, 33%);
+}
+
+html {
+	font-size: 100%;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+body {
+	position: relative;
+	margin: 0;
+	padding: 0;
+
+	/* line-height: 1.3; */
+	font-size: 0.9375rem;
+	font-weight: 700;
+	color: var(--darkGrayishBlue);
+	font-family: "Montserrat", sans-serif;
+	overflow-x: hidden;
+	background-image: url(./images/bg-top.svg);
+	background-position: 150px -30px;
+	background-size: 475px 667px;
+	background-repeat: no-repeat;
+	background-color: var(--veryLightGrayishBlue);
+}
+.flex {
+	display: flex;
+}
+
+section {
+	margin-top: 4.375rem;
+}
+
+h1 {
+	margin: 0;
+	color: var(--darkGrayishBlue);
+	text-align: center;
+	font-size: 2.125rem;
+	margin-bottom: 2.625rem;
+}
+
+.toggle-cont {
+	/* margin: 0 auto; */
+	text-align: center;
+	margin-bottom: 5.125rem;
+}
+.toggle-cont::before,
+.toggle-cont::after {
+	color: var(--lightGrayishBlue);
+	vertical-align: -40%;
+}
+.toggle-cont::before {
+	content: "Annually";
+	padding: 0 1.375rem 0 0;
+}
+.toggle-cont::after {
+	content: "Monthly";
+	padding: 0 0 0 1.375rem;
+}
+/* Toggle btn */
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
+}
+/* .switch::before{
+   content: 'Annually';
+   msrgin-right: 30px;
+} */
+
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The slider */
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(90deg, rgb(163, 168, 240), rgb(105, 111, 221));
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+input:checked + .slider {
+	background-color: #2196f3;
+}
+
+input:focus + .slider {
+	box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+	-webkit-transform: translateX(26px);
+	-ms-transform: translateX(26px);
+	transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
+}
+
+/* card css */
+/* .pricing-cont {
+} */
+
+.card {
+	width: 20.4375rem;
+	margin: 0 auto 2rem;
+	padding: 2.1875rem 1.875rem 1.9375rem;
+	text-align: center;
+	height: 28.3125rem;
+	border-radius: 10px;
+	background-color: #fff;
+}
+
+.card-price::before {
+	content: "$";
+   font-size: 2rem;
+   vertical-align: 20%;
+   padding-right: .375rem;
+}
+
+h3 {
+	color: var(--grayishBlue);
+   margin: 0;
+}
+
+.card-price{
+   font-size: 3.375rem;
+   margin: 0;
+}
+
+.card-text {
+	color: var(--grayishBlue);
+   margin: 0;
+}
+
+.attribution {
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+}
