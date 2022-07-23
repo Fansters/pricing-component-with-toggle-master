@@ -1,5 +1,4 @@
 :root {
-	/* --linearGradient: rgb(163, 168, 240) to rgb(105, 111, 221); */
 	--veryLightGrayishBlue: hsl(240, 78%, 98%);
 	--lightGrayishBlue: hsl(234, 14%, 74%);
 	--grayishBlue: hsl(233, 13%, 49%);
@@ -21,8 +20,6 @@ body {
 	position: relative;
 	margin: 0;
 	padding: 0;
-
-	/* line-height: 1.3; */
 	font-size: 0.9375rem;
 	font-weight: 700;
 	color: var(--darkGrayishBlue);
@@ -50,94 +47,62 @@ h1 {
 	margin-bottom: 2.625rem;
 }
 
-.toggle-cont {
-	/* margin: 0 auto; */
-	text-align: center;
-	margin-bottom: 5.125rem;
-}
-.toggle-cont::before,
-.toggle-cont::after {
-	color: var(--lightGrayishBlue);
-	vertical-align: -40%;
-}
-.toggle-cont::before {
-	content: "Annually";
-	padding: 0 1.375rem 0 0;
-}
-.toggle-cont::after {
-	content: "Monthly";
-	padding: 0 0 0 1.375rem;
-}
-/* Toggle btn */
-/* The switch - the box around the slider */
-.switch {
+/* toggle btn */
+.toggle {
+	margin: 0 auto 5rem;
 	position: relative;
-	display: inline-block;
-	width: 60px;
-	height: 34px;
-}
-/* .switch::before{
-   content: 'Annually';
-   msrgin-right: 30px;
-} */
-
-/* Hide default HTML checkbox */
-.switch input {
-	opacity: 0;
-	width: 0;
-	height: 0;
-}
-
-/* The slider */
-.slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
+	display: block;
+	width: 56px;
+	height: 32px;
 	background: linear-gradient(90deg, rgb(163, 168, 240), rgb(105, 111, 221));
-	-webkit-transition: 0.4s;
-	transition: 0.4s;
+	border-radius: 30px;
+	border: none;
 }
 
-.slider:before {
-	position: absolute;
+/* after slide changes */
+.toggle:after {
 	content: "";
-	height: 26px;
-	width: 26px;
-	left: 4px;
-	bottom: 4px;
-	background-color: white;
-	-webkit-transition: 0.4s;
-	transition: 0.4s;
-}
-
-input:checked + .slider {
-	background-color: #2196f3;
-}
-
-input:focus + .slider {
-	box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-	-webkit-transform: translateX(26px);
-	-ms-transform: translateX(26px);
-	transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-	border-radius: 34px;
-}
-
-.slider.round:before {
+	position: absolute;
+	width: 24px;
+	height: 24px;
 	border-radius: 50%;
+	background: #fff;
+	top: 4px;
+	left: 4px;
+	transition: all 0.5s;
+}
+
+/* checkbox checked effect */
+.checkbox:checked + .toggle::after {
+	left: 28px;
+}
+
+/* checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+	background: linear-gradient(90deg, rgb(163, 168, 240), rgb(105, 111, 221));
+}
+
+/* checkbox vanished */
+.checkbox {
+	display: none;
+}
+
+/* text around toggle btn */
+.toggle span::after,
+.toggle span::before{
+   color: var(--lightGrayishBlue);
+   line-height: 2;
+}
+.toggle span::before{
+   content: 'Annually';
+   margin-left: -90px;
+}
+.toggle span::after{
+   content: 'Monthly';
+   margin-left:95px;
 }
 
 /* card css */
-
 .pricing-cont {
 	margin-bottom: 4.375rem;
 }
@@ -165,10 +130,39 @@ h3 {
 	margin: 0 0 2rem 0;
 }
 
-.card-price {
+.card-price,
+.card-price:after {
 	font-size: 3.375rem;
 	margin: 0 0 2rem 0;
 }
+
+/*  - - - - - - - - -  */
+/* Page content change on toggle btn click */
+
+/* basic */
+input[type="checkbox"]:checked ~ .pricing-cont .priceBasic::after {
+	content: attr(data-price-month-basic);
+}
+input[type="checkbox"] ~ .pricing-cont .priceBasic::after {
+	content: attr(data-price-year-basic);
+}
+
+/* pro */
+input[type="checkbox"]:checked ~ .pricing-cont .pricePro::after {
+	content: attr(data-price-month-pro);
+}
+input[type="checkbox"] ~ .pricing-cont .pricePro::after {
+	content: attr(data-price-year-pro);
+}
+
+/* master */
+input[type="checkbox"]:checked ~ .pricing-cont .priceMaster::after {
+	content: attr(data-price-month-master);
+}
+input[type="checkbox"] ~ .pricing-cont .priceMaster::after {
+	content: attr(data-price-year-master);
+}
+/*  - - - - - - - - - -  */
 
 .card-text {
 	color: var(--grayishBlue);
@@ -198,17 +192,18 @@ h3 {
 
 /* middle card */
 .card2 {
-	background: linear-gradient( rgb(163, 168, 240), rgb(105, 111, 221));
+	background: linear-gradient(rgb(163, 168, 240), rgb(105, 111, 221));
 }
 .card2 h3,
 .card2 p {
-   color: #fff;
+	color: #fff;
 }
-.card2 .learn-more{
-   background: #fff;
+.card2 .learn-more {
+	background: #fff;
 	color: rgb(105, 111, 221);
 }
 
+/* CREDITS */
 .attribution {
 	position: absolute;
 	bottom: 1.25rem;
