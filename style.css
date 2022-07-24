@@ -89,17 +89,17 @@ h1 {
 
 /* text around toggle btn */
 .toggle span::after,
-.toggle span::before{
-   color: var(--lightGrayishBlue);
-   line-height: 2;
+.toggle span::before {
+	color: var(--lightGrayishBlue);
+	line-height: 2;
 }
-.toggle span::before{
-   content: 'Annually';
-   margin-left: -90px;
+.toggle span::before {
+	content: "Annually";
+	margin-left: -90px;
 }
-.toggle span::after{
-   content: 'Monthly';
-   margin-left:95px;
+.toggle span::after {
+	content: "Monthly";
+	margin-left: 95px;
 }
 
 /* card css */
@@ -177,17 +177,20 @@ input[type="checkbox"] ~ .pricing-cont .priceMaster::after {
 	margin-bottom: 2rem;
 }
 
-.learn-more {
+.card .learn-more {
+	position: relative;
 	width: 100%;
-	border: none;
+	border: 1px solid transparent;
 	background: linear-gradient(90deg, rgb(163, 168, 240), rgb(105, 111, 221));
 	padding: 1.125rem 0;
-	border-radius: 7px;
+	border-radius: 6px;
 	text-transform: uppercase;
 	letter-spacing: 0.125rem;
 	color: #fff;
 	font-weight: 700;
 	font-family: "Montserrat", sans-serif;
+	transition: all 0.2s ease-in-out;
+	z-index: 1;
 }
 
 /* middle card */
@@ -201,6 +204,8 @@ input[type="checkbox"] ~ .pricing-cont .priceMaster::after {
 .card2 .learn-more {
 	background: #fff;
 	color: rgb(105, 111, 221);
+	border: 1px solid transparent;
+	/* transition: all 0.2s ease-in-out; */
 }
 
 /* CREDITS */
@@ -218,4 +223,175 @@ a:visited {
 }
 a:hover {
 	color: tomato;
+}
+
+/* RESPONSIVE */
+@media only screen and (min-width: 500px) {
+	.card {
+		width: 27rem;
+	}
+}
+@media only screen and (min-width: 768px) {
+	body {
+		background-position: 300px 0px;
+		background-size: 575px 967px;
+	}
+	.pricing-cont {
+		display: flex;
+	}
+	.card {
+		width: 15rem;
+		min-height: 16rem;
+	}
+	h3 {
+		margin: 0 0 1.5rem 0;
+	}
+	.card-price,
+	.card-price:after {
+		font-size: 3rem;
+		margin: 0 0 1.5rem 0;
+	}
+	.card-price::before {
+		vertical-align: 15%;
+	}
+	.card-text {
+		padding: 1rem 0;
+	}
+	.card .card-text:nth-child(5) {
+		margin-bottom: 1.5rem;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	body {
+		background-position: 600px -30px;
+		background-size: 575px 967px;
+	}
+	section {
+		margin-top: 4rem;
+	}
+	.toggle {
+		transition: all 0.2s ease-in-out;
+	}
+	.toggle:hover {
+		cursor: pointer;
+		opacity: 0.8;
+	}
+	.pricing-cont {
+		justify-content: center;
+		align-items: center;
+	}
+	.card {
+		width: 18.75rem;
+		height: 30.125rem;
+		margin: 0;
+		padding: 2.1875rem 1.875rem 1.9375rem;
+	}
+	.card1 {
+		border-radius: 10px 0 0 10px;
+	}
+	.card2 {
+		border-radius: 10px;
+		min-height: 34.125rem;
+		padding: 4.1875rem 1.875rem 1.9375rem;
+	}
+	.card3 {
+		border-radius: 0 10px 10px 0;
+	}
+	h3 {
+		margin: 0 0 2rem 0;
+	}
+	.card-price,
+	.card-price:after {
+		font-size: 3.375rem;
+		margin: 0 0 2rem 0;
+	}
+	.card-price::before {
+		vertical-align: 20%;
+	}
+	.card-text {
+		padding: 1.25rem 0;
+	}
+	.card .card-text:nth-child(5) {
+		margin-bottom: 2rem;
+	}
+	.card1 .learn-more:hover,
+	.card3 .learn-more:hover {
+		cursor: pointer;
+		border: 1px solid var(--lightGrayishBlue);
+		color: rgb(105, 111, 221);
+	}
+	.card1 .learn-more::before,
+	.card3 .learn-more::before {
+		position: absolute;
+      border-radius: 6px;
+		content: "";
+		top: 1px;
+		right: 1px;
+		bottom: 1px;
+		left: 1px;
+		background: linear-gradient(to bottom, hsl(0, 0%, 100%), hsl(0, 0%, 98%));
+		z-index: -1;
+		transition: opacity 0.2s linear;
+		opacity: 0;
+	}
+	.card .learn-more:hover::before {
+		opacity: 1;
+      top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+	.card2 .learn-more:hover {
+		cursor: pointer;
+		background: transparent;
+		color: #fff;
+		border: 1px solid #fff;
+	}
+
+   .attribution {
+      position: absolute;
+      top: 1.25rem;
+      left: 1.25rem;
+      /* left: 0%; */
+      transform: translateX(0);
+   }
+   a,
+   a:visited {
+      font-size: large;
+      text-decoration: none;
+      color: tomato;
+      transition: color 0.2s ease-in-out;
+   }
+   a:hover {
+      color: #2196f3;
+   }
+}
+
+@media only screen and (min-width: 1200px) {
+	body {
+		background-position: 800px -30px;
+		background-size: 575px 967px;
+	}
+	.card {
+		min-width: 21.875rem;
+		height: 28.3125rem;
+		margin: 0;
+		padding: 2.25rem 1.9375rem 1.9375rem;
+	}
+	.card2 {
+		min-height: 31.3125rem;
+		padding: 3.75rem 1.875rem 1.9375rem;
+	}
+	h3 {
+		margin: 0 0 1rem 0;
+	}
+	.card-price,
+	.card-price:after {
+		font-size: 4rem;
+		margin: 0 0 1rem 0;
+	}
+	.card-text {
+		padding: 1.125rem 0;
+	}
 }
