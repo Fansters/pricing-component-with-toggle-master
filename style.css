@@ -227,13 +227,16 @@ a:hover {
 
 /* RESPONSIVE */
 @media only screen and (min-width: 500px) {
+	body {
+		background-position: 100% -30px;
+	}
 	.card {
 		width: 27rem;
 	}
 }
 @media only screen and (min-width: 768px) {
 	body {
-		background-position: 300px 0px;
+		background-position: 100% 0px;
 		background-size: 575px 967px;
 	}
 	.pricing-cont {
@@ -264,13 +267,16 @@ a:hover {
 
 @media only screen and (min-width: 992px) {
 	body {
-		background-position: 600px -30px;
-		background-size: 575px 967px;
+      height: 100vh;
+		background-image: url(./images/bg-top.svg), url(/images/bg-bottom.svg);
+		background-position: 100% 0px, 0% 100%;
+		background-size: 375px 650px, 200px 300px;
 	}
 	section {
 		margin-top: 4rem;
 	}
 	.toggle {
+		margin: 0 auto 3.5rem;
 		transition: all 0.2s ease-in-out;
 	}
 	.toggle:hover {
@@ -324,7 +330,7 @@ a:hover {
 	.card1 .learn-more::before,
 	.card3 .learn-more::before {
 		position: absolute;
-      border-radius: 6px;
+		border-radius: 6px;
 		content: "";
 		top: 1px;
 		right: 1px;
@@ -337,7 +343,7 @@ a:hover {
 	}
 	.card .learn-more:hover::before {
 		opacity: 1;
-      top: 0;
+		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
@@ -349,29 +355,30 @@ a:hover {
 		border: 1px solid #fff;
 	}
 
-   .attribution {
-      position: absolute;
-      top: 1.25rem;
-      left: 1.25rem;
-      /* left: 0%; */
-      transform: translateX(0);
-   }
-   a,
-   a:visited {
-      font-size: large;
-      text-decoration: none;
-      color: tomato;
-      transition: color 0.2s ease-in-out;
-   }
-   a:hover {
-      color: #2196f3;
-   }
+	.attribution {
+		position: absolute;
+		top: 1.25rem;
+		left: 1.25rem;
+		/* left: 0%; */
+		transform: translateX(0);
+	}
+	a,
+	a:visited {
+		font-size: large;
+		text-decoration: none;
+		color: tomato;
+		transition: color 0.2s ease-in-out;
+	}
+	a:hover {
+		color: #2196f3;
+	}
 }
 
 @media only screen and (min-width: 1200px) {
 	body {
-		background-position: 800px -30px;
-		background-size: 575px 967px;
+		background-position: 100% 0px, 0% bottom;
+		background-size: 375px 650px, 350px 300px;
+		background-repeat: no-repeat;
 	}
 	.card {
 		min-width: 21.875rem;
