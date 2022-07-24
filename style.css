@@ -281,6 +281,9 @@ a:hover {
 	section {
 		margin-top: 4rem;
 	}
+   h1{
+      margin-bottom: 1.8rem;
+   }
 	.toggle {
 		margin: 0 auto 3.5rem;
 		transition: all 0.2s ease-in-out;
