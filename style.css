@@ -84,8 +84,14 @@ h1 {
 
 /* checkbox vanished */
 .checkbox {
-	display: none;
+	opacity: 0;
+   width: 0;
+   height: 0;
 }
+input:focus + .toggle{
+   box-shadow: 0px 0px 5px #2196f3;
+}
+
 
 /* text around toggle btn */
 .toggle span::after,
@@ -180,7 +186,7 @@ input[type="checkbox"] ~ .pricing-cont .priceMaster::after {
 .card .learn-more {
 	position: relative;
 	width: 100%;
-	border: 1px solid transparent;
+	border: none;
 	background: linear-gradient(90deg, rgb(163, 168, 240), rgb(105, 111, 221));
 	padding: 1.125rem 0;
 	border-radius: 6px;
@@ -324,29 +330,27 @@ a:hover {
 	.card1 .learn-more:hover,
 	.card3 .learn-more:hover {
 		cursor: pointer;
-		border: 1px solid var(--lightGrayishBlue);
+		/* border: 1px solid var(--lightGrayishBlue); */
 		color: rgb(105, 111, 221);
 	}
 	.card1 .learn-more::before,
 	.card3 .learn-more::before {
 		position: absolute;
 		border-radius: 6px;
+      border: 1px solid transparent;
 		content: "";
-		top: 1px;
-		right: 1px;
-		bottom: 1px;
-		left: 1px;
-		background: linear-gradient(to bottom, hsl(0, 0%, 100%), hsl(0, 0%, 98%));
-		z-index: -1;
-		transition: opacity 0.2s linear;
-		opacity: 0;
-	}
-	.card .learn-more:hover::before {
-		opacity: 1;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
+		background: linear-gradient(to bottom, hsl(0, 0%, 100%), hsl(0, 0%, 100%));
+		z-index: -1;
+		transition: opacity 0.2s ease-in-out;
+		opacity: 0;
+	}
+	.card .learn-more:hover::before {
+      border-color: var(--lightGrayishBlue);
+		opacity: 1;
 	}
 	.card2 .learn-more:hover {
 		cursor: pointer;
